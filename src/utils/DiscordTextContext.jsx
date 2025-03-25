@@ -1,4 +1,3 @@
-// src/utils/DiscordTextContext.jsx
 import { createContext, useContext, useState } from 'react';
 import React from 'react';
 const DiscordTextContext = createContext();

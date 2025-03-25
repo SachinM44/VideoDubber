@@ -1,4 +1,3 @@
-// src/App.jsx
 import { MantineProvider } from '@mantine/core';
 import TextEditor from './components/TextEditor';
 import ColorPicker from './components/ColorPicker';

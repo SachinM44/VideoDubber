@@ -44,7 +44,7 @@ function CopyButton() {
   };
 
   const isDisabled = !text || text.trim() === '' || 
-                    !(textColor || bgColor || isBold || isUnderline);
+    !(textColor || bgColor || isBold || isUnderline);
 
   return (
     <Button

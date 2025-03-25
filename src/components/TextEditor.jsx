@@ -1,4 +1,3 @@
-// src/components/TextEditor.jsx
 import { Textarea } from '@mantine/core';
 import { useDiscordText } from '../utils/DiscordTextContext';
 import React from 'react';

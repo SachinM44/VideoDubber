@@ -1,4 +1,3 @@
-// src/components/FormattingTools.jsx
 import { Button, Group } from '@mantine/core';
 import { useDiscordText } from '../utils/DiscordTextContext';
 import React from 'react';
