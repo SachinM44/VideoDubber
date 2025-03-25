@@ -2,7 +2,8 @@ import { Button } from '@mantine/core';
 import { useDiscordText } from '../utils/DiscordTextContext';
 import { formatDiscordText } from '../utils/colorConverter';
 import React from 'react';
-function   CopyButton() {
+
+function CopyButton() {
   const {
     text,
     selectedText,
@@ -10,24 +11,23 @@ function   CopyButton() {
     bgColor,
     isBold,
     isUnderline
-  } =  useDiscordText();
+  } = useDiscordText();
 
   const handleCopy = async () => {
-    const textToFormat = selectedText   || text;
-    const formattedText =  formatDiscordText(
+    const textToFormat = selectedText || text;
+    const formattedText = formatDiscordText(
       textToFormat,
-      textColor ,
+      textColor,
       bgColor,
       isBold,
       isUnderline
-    )
+    );
     
     try {
       await navigator.clipboard.writeText(formattedText);
-      alert('Text copied to clipboard');
-    }   catch (errrro) {
-      console.error('Failed to copy text:', err);
-      alert('Failed to copy text to clipboard');
+      alert('Text copied! Now paste in Discord');
+    } catch (err) {
+      alert(formattedText); 
     }
   };
 
