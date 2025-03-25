@@ -33,7 +33,6 @@ function nodesToANSI(text, color, bgColor, isBold, isUnderline) {
       }[bgColor] || 40;
     }
   
-    // Format exactly like the original
     if (newState.st !== 2) formattedText += `\x1b[${newState.st}m`;
     if (newState.fg !== 2) formattedText += `\x1b[${newState.fg}m`;
     if (newState.bg !== 2) formattedText += `\x1b[${newState.bg}m`;

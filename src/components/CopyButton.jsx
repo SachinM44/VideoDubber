@@ -15,6 +15,18 @@ function CopyButton() {
 
   const handleCopy = async () => {
     const textToFormat = selectedText || text;
+
+    if (!textToFormat || textToFormat.trim() === '') {
+      alert('Please enter some text first!');
+      return;
+    }
+
+    const hasFormatting = textColor || bgColor || isBold || isUnderline;
+    if (!hasFormatting) {
+      alert('Please apply some formatting (color, background, bold, or underline) first!');
+      return;
+    }
+
     const formattedText = formatDiscordText(
       textToFormat,
       textColor,
@@ -31,14 +43,22 @@ function CopyButton() {
     }
   };
 
+  const isDisabled = !text || text.trim() === '' || 
+                    !(textColor || bgColor || isBold || isUnderline);
+
   return (
     <Button
       fullWidth
       size="lg"
       onClick={handleCopy}
       className="mt-4"
+      disabled={isDisabled}
+      style={{
+        opacity: isDisabled ? 0.5 : 1,
+        cursor: isDisabled ? 'not-allowed' : 'pointer'
+      }}
     >
-      Copy text as Discord formatted
+      {isDisabled ? 'Add text and formatting first' : 'Copy text as Discord formatted'}
     </Button>
   );
 }
